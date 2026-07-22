@@ -500,6 +500,47 @@
             box-shadow: 0 6px 12px rgba(102, 126, 234, 0.4);
         }
 
+        /* KKH Resources Box */
+        .kkh-resources {
+            background: linear-gradient(135deg, #e0f2fe 0%, #cffafe 100%);
+            border-left: 4px solid #0284c7;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+
+        .kkh-resources h4 {
+            color: #0284c7;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1em;
+        }
+
+        .kkh-resources a {
+            display: inline-block;
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 10px 10px 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        .kkh-resources a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(2, 132, 199, 0.4);
+        }
+
+        .kkh-resources p {
+            color: #0c4a6e;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             header h1 {
@@ -853,6 +894,24 @@
                     <button class="action-btn btn-secondary" onclick="downloadTemplate('medication')">
                         <i class="fas fa-download"></i> Download Template
                     </button>
+                </div>
+
+                <!-- KKH Resources Section -->
+                <div class="kkh-resources">
+                    <h4>
+                        <i class="fas fa-hospital"></i>
+                        KKH Women's & Children's Hospital Medication Resources
+                    </h4>
+                    <p>Access trusted medication information and tools from KKH Singapore:</p>
+                    <a href="https://www.kkh.com.sg/medicine" target="_blank">
+                        <i class="fas fa-pills"></i> KKH Medicine Checker
+                    </a>
+                    <a href="https://www.singhealth.com.sg/symptoms-treatments/inflammatory-bowel-disease" target="_blank">
+                        <i class="fas fa-book-medical"></i> IBD Treatments & Medications
+                    </a>
+                    <p style="margin-top: 15px; font-size: 0.95em;">
+                        The KKH Medicine Checker provides comprehensive information about IBD medications including what they're for, side effects, storage, and usage guidance. The IBD treatment resource explains different medication categories used in IBD management.
+                    </p>
                 </div>
 
                 <div class="warning-box">
