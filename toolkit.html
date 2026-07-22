@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>IBD Family Toolkit</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+<style>
+body{
+    font-family:Segoe UI,sans-serif;
+    background:#f5f5f5;
+    padding:40px;
+}
+
+h1{
+    text-align:center;
+    color:#4f46e5;
+    margin-bottom:40px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    transition:.3s;
+    text-decoration:none;
+    color:#333;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card i{
+    font-size:45px;
+    color:#4f46e5;
+    margin-bottom:15px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>IBD Family Toolkit</h1>
+
+<div class="grid">
+
+<a class="card" href="stool-diary.html">
+<i class="fas fa-toilet-paper"></i>
+<h3>Stool Diary</h3>
+</a>
+
+<a class="card" href="symptom-tracker.html">
+<i class="fas fa-chart-line"></i>
+<h3>Symptom Tracker</h3>
+</a>
+
+<a class="card" href="nutrition.html">
+<i class="fas fa-apple-alt"></i>
+<h3>Nutrition Guide</h3>
+</a>
+
+<a class="card" href="medications.html">
+<i class="fas fa-capsules"></i>
+<h3>Medication Guide</h3>
+</a>
+
+<a class="card" href="red-flags.html">
+<i class="fas fa-triangle-exclamation"></i>
+<h3>Red Flags</h3>
+</a>
+
+<a class="card" href="contacts.html">
+<i class="fas fa-phone"></i>
+<h3>Emergency Contacts</h3>
+</a>
+
+</div>
+
+</body>
+</html>
