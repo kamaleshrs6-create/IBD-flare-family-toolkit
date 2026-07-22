@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Is My Child Having an IBD Flare? What Should I Do Next?</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .traffic-light-icon {
+            font-size: 1.2em;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        /* What is an IBD Flare Section */
+        .intro-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .intro-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .intro-section p {
+            font-size: 1.05em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        /* Traffic Light System */
+        .traffic-light-system {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .status-box {
+            border-radius: 10px;
+            padding: 25px;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .status-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .status-box h3 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .status-box.red {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+
+        .status-box.amber {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+
+        .status-box.green {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+
+        .symptoms-list {
+            list-style: none;
+        }
+
+        .symptoms-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .symptoms-list i {
+            margin-top: 3px;
+            min-width: 20px;
+        }
+
+        .status-box.red .symptoms-list i {
+            color: #fee2e2;
+        }
+
+        .status-box.amber .symptoms-list i {
+            color: #fef3c7;
+        }
+
+        .status-box.green .symptoms-list i {
+            color: #d1fae5;
+        }
+
+        .action-text {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-weight: 500;
+            border-left: 4px solid rgba(255,255,255,0.5);
+        }
+
+        /* What to Avoid Section */
+        .avoid-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .avoid-section h2 {
+            color: #ef4444;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+
+        .avoid-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .avoid-item {
+            background: #fee2e2;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #ef4444;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .avoid-item i {
+            color: #ef4444;
+            font-size: 1.3em;
+            min-width: 30px;
+        }
+
+        .avoid-item strong {
+            color: #7f1d1d;
+        }
+
+        /* Red Flags Section */
+        .red-flags-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .red-flags-section h2 {
+            color: #dc2626;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .red-flags-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .red-flag-item {
+            background: #fef2f2;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #dc2626;
+        }
+
+        .red-flag-item h4 {
+            color: #7f1d1d;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1em;
+        }
+
+        .red-flag-item p {
+            color: #5f2121;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        /* Trust Your Instincts Section */
+        .instincts-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .instincts-section h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .instincts-section p {
+            font-size: 1.1em;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .instincts-section strong {
+            display: block;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+        /* 5 Steps Section */
+        .five-steps {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .five-steps h2 {
+            color: #10b981;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .step-item {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .step-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .step-item p {
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .step-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        /* Resources Section */
+        .resources-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .resources-section h2 {
+            color: #667eea;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .resource-card {
+            background: linear-gradient(135deg, #f0f4ff 0%, #e9ecff 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            text-align: center;
+        }
+
+        .resource-card i {
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .resource-card h4 {
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .resource-card p {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        /* QR Code Section */
+        .qr-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .qr-section h2 {
+            font-size: 1.6em;
+            margin-bottom: 30px;
+        }
+
+        .qr-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-bottom: 30px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .qr-container:hover {
+            transform: scale(1.05);
+        }
+
+        .qr-container img {
+            width: 200px;
+            height: 200px;
+            border-radius: 8px;
+        }
+
+        .qr-resources {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .qr-resource-item {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        .qr-resource-item i {
+            margin-right: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .traffic-light-system {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .avoid-list {
+                grid-template-columns: 1fr;
+            }
+
+            .red-flags-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>
+                <span class="traffic-light-icon">🚦</span>
+                Is My Child Having an IBD Flare? What Should I Do Next?
+            </h1>
+            <p>A guide to recognizing symptoms and taking appropriate action</p>
+        </header>
+
+        <!-- What is an IBD Flare Section -->
+        <section class="intro-section">
+            <h2>What is an IBD Flare?</h2>
+            <p>An IBD flare is a period when your child's inflammatory bowel disease becomes more active, causing increased inflammation in the digestive tract. During a flare, symptoms become worse and may require additional treatment or medical attention.</p>
+            <p>Understanding the signs of a flare and knowing how to respond quickly can help minimize discomfort and prevent complications. Use this guide to assess your child's symptoms and determine the appropriate next steps.</p>
+        </section>
+
+        <!-- Traffic Light System -->
+        <section class="traffic-light-system">
+            <!-- Green - Mild Symptoms -->
+            <div class="status-box green">
+                <h3>
+                    <i class="fas fa-circle" style="color: #10b981;"></i>
+                    GREEN - Mild Symptoms
+                </h3>
+                <ul class="symptoms-list">
+                    <li><i class="fas fa-check"></i> Mild abdominal discomfort</li>
+                    <li><i class="fas fa-check"></i> Slightly increased bowel movements</li>
+                    <li><i class="fas fa-check"></i> Minimal blood or mucus</li>
+                    <li><i class="fas fa-check"></i> Normal energy levels</li>
+                    <li><i class="fas fa-check"></i> No fever</li>
+                </ul>
+                <div class="action-text">
+                    <i class="fas fa-arrow-right"></i> <strong>Action:</strong> Monitor at home, continue medications, ensure hydration
+                </div>
+            </div>
+
+            <!-- Amber - Moderate Symptoms -->
+            <div class="status-box amber">
+                <h3>
+                    <i class="fas fa-circle" style="color: #f59e0b;"></i>
+                    AMBER - Moderate Symptoms
+                </h3>
+                <ul class="symptoms-list">
+                    <li><i class="fas fa-triangle-exclamation"></i> Moderate abdominal pain</li>
+                    <li><i class="fas fa-triangle-exclamation"></i> Frequent bowel movements (6-8+)</li>
+                    <li><i class="fas fa-triangle-exclamation"></i> Blood or mucus in stool</li>
+                    <li><i class="fas fa-triangle-exclamation"></i> Reduced appetite</li>
+                    <li><i class="fas fa-triangle-exclamation"></i> Low fever (37.5-38.5°C)</li>
+                </ul>
+                <div class="action-text">
+                    <i class="fas fa-phone"></i> <strong>Action:</strong> Contact your IBD team for guidance
+                </div>
+            </div>
+
+            <!-- Red - Severe Symptoms -->
+            <div class="status-box red">
+                <h3>
+                    <i class="fas fa-circle" style="color: #ef4444;"></i>
+                    RED - Severe Symptoms
+                </h3>
+                <ul class="symptoms-list">
+                    <li><i class="fas fa-exclamation-triangle"></i> Severe abdominal pain</li>
+                    <li><i class="fas fa-exclamation-triangle"></i> Very frequent stools (8+ per day)</li>
+                    <li><i class="fas fa-exclamation-triangle"></i> Heavy blood loss in stool</li>
+                    <li><i class="fas fa-exclamation-triangle"></i> High fever (>38.5°C)</li>
+                    <li><i class="fas fa-exclamation-triangle"></i> Signs of dehydration</li>
+                </ul>
+                <div class="action-text">
+                    <i class="fas fa-hospital-user"></i> <strong>Action:</strong> Seek urgent medical help immediately
+                </div>
+            </div>
+        </section>
+
+        <!-- What to Avoid Section -->
+        <section class="avoid-section">
+            <h2><i class="fas fa-ban"></i> 5 Things NOT to Do During a Flare</h2>
+            <div class="avoid-list">
+                <div class="avoid-item">
+                    <i class="fas fa-utensils"></i>
+                    <div>
+                        <strong>Don't eat high-fiber foods</strong>
+                        <p>Avoid whole grains, raw vegetables, and high-fiber foods that may irritate</p>
+                    </div>
+                </div>
+                <div class="avoid-item">
+                    <i class="fas fa-droplet"></i>
+                    <div>
+                        <strong>Don't skip hydration</strong>
+                        <p>Never reduce fluid intake during flares when dehydration risk is high</p>
+                    </div>
+                </div>
+                <div class="avoid-item">
+                    <i class="fas fa-pills"></i>
+                    <div>
+                        <strong>Don't stop medications</strong>
+                        <p>Continue prescribed treatments unless instructed by your IBD team</p>
+                    </div>
+                </div>
+                <div class="avoid-item">
+                    <i class="fas fa-wait"></i>
+                    <div>
+                        <strong>Don't delay seeking help</strong>
+                        <p>Contact your IBD team early rather than waiting for symptoms to worsen</p>
+                    </div>
+                </div>
+                <div class="avoid-item">
+                    <i class="fas fa-wind"></i>
+                    <div>
+                        <strong>Don't ignore severe symptoms</strong>
+                        <p>Severe pain or bleeding requires immediate medical attention</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Red Flags Section -->
+        <section class="red-flags-section">
+            <h2>
+                <i class="fas fa-flag"></i>
+                Understanding Red Flags: Why They Matter
+            </h2>
+            <p style="margin-bottom: 25px; color: #333;">Red flags are warning signs that require urgent medical attention. Recognizing and acting on red flags quickly can prevent serious complications.</p>
+            
+            <div class="red-flags-grid">
+                <div class="red-flag-item">
+                    <h4>
+                        <i class="fas fa-droplet"></i>
+                        Why Severe Bleeding Needs Urgent Review
+                    </h4>
+                    <p>Heavy bleeding can lead to anemia (low iron), weakness, and fatigue. Persistent or severe bleeding may indicate complications such as ulcers or perforations that require immediate intervention.</p>
+                </div>
+
+                <div class="red-flag-item">
+                    <h4>
+                        <i class="fas fa-water"></i>
+                        Why Dehydration is Dangerous
+                    </h4>
+                    <p>Dehydration can cause electrolyte imbalances, dizziness, reduced kidney function, and worsening of flare symptoms. In children, dehydration can develop rapidly and may require hospital admission.</p>
+                </div>
+
+                <div class="red-flag-item">
+                    <h4>
+                        <i class="fas fa-heart-pulse"></i>
+                        Why Severe Pain Should Not Be Ignored
+                    </h4>
+                    <p>Severe pain may indicate serious complications like bowel obstruction, perforation, or toxic megacolon—all conditions requiring emergency medical intervention to prevent life-threatening situations.</p>
+                </div>
+
+                <div class="red-flag-item">
+                    <h4>
+                        <i class="fas fa-thermometer"></i>
+                        Why High Fever Matters
+                    </h4>
+                    <p>A high fever (>38.5°C) in combination with IBD symptoms may indicate infection, sepsis, or severe inflammation. This requires urgent medical evaluation to rule out dangerous complications.</p>
+                </div>
+
+                <div class="red-flag-item">
+                    <h4>
+                        <i class="fas fa-person-dots-from-line"></i>
+                        Why General Deterioration Requires Action
+                    </h4>
+                    <p>If your child is becoming increasingly unwell, lethargic, or experiencing multiple worsening symptoms together, this indicates serious flare activity requiring urgent medical intervention.</p>
+                </div>
+
+                <div class="red-flag-item">
+                    <h4>
+                        <i class="fas fa-brain"></i>
+                        Trust Your Instincts
+                    </h4>
+                    <p>You know your child best. If something feels wrong but you're unsure, don't hesitate to contact your IBD team. It's always better to check and be reassured than to delay care.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Your Instincts Section -->
+        <section class="instincts-section">
+            <h2>
+                <i class="fas fa-lightbulb"></i>
+                Trust Your Instincts
+            </h2>
+            <p>
+                As a parent, you have invaluable knowledge of your child's normal patterns and behavior. If you notice something isn't right—even if symptoms seem mild—trust your gut instinct and seek guidance.
+            </p>
+            <p>
+                If you are unsure about the severity of symptoms or whether to seek help, <strong>always err on the side of caution and contact your IBD team</strong>. Early communication with your healthcare provider can prevent complications.
+            </p>
+            <strong>
+                When in doubt, reach out. Your concerns are valid and important.
+            </strong>
+        </section>
+
+        <!-- 5 Steps to Remember -->
+        <section class="five-steps">
+            <h2>Remember These 5 Steps</h2>
+            <div class="steps-grid">
+                <div class="step-item">
+                    <div class="step-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="step-number">1</div>
+                    <p>Recognize Symptoms Early</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-icon">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <div class="step-number">2</div>
+                    <p>Continue Prescribed Medicines</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-icon">
+                        <i class="fas fa-droplet-slash"></i>
+                    </div>
+                    <div class="step-number">3</div>
+                    <p>Keep Your Child Hydrated</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="step-number">4</div>
+                    <p>Contact Your IBD Team Early</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-icon">
+                        <i class="fas fa-hospital-user"></i>
+                    </div>
+                    <div class="step-number">5</div>
+                    <p>Seek Urgent Help if Symptoms Become Severe</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section class="resources-section">
+            <h2>IBD Flare Family Toolkit Resources</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <i class="fas fa-chart-simple"></i>
+                    <h4>Symptom Tracker</h4>
+                    <p>Monitor and record your child's symptoms over time</p>
+                </div>
+                <div class="resource-card">
+                    <i class="fas fa-toilet-paper"></i>
+                    <h4>Stool Diary</h4>
+                    <p>Track bowel movements and characteristics</p>
+                </div>
+                <div class="resource-card">
+                    <i class="fas fa-apple"></i>
+                    <h4>Nutrition Tips</h4>
+                    <p>Dietary guidance during flares and remission</p>
+                </div>
+                <div class="resource-card">
+                    <i class="fas fa-capsules"></i>
+                    <h4>Medication Information</h4>
+                    <p>Details about your child's prescribed treatments</p>
+                </div>
+                <div class="resource-card">
+                    <i class="fas fa-phone"></i>
+                    <h4>Contact Details</h4>
+                    <p>Quick access to your IBD team's phone numbers</p>
+                </div>
+                <div class="resource-card">
+                    <i class="fas fa-first-aid"></i>
+                    <h4>Emergency Contacts</h4>
+                    <p>Important numbers for urgent situations</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- QR Code Section -->
+        <section class="qr-section">
+
+<h2>
+<i class="fas fa-qrcode"></i>
+Scan to Open the IBD Family Toolkit
+</h2>
+
+<div class="qr-container">
+
+<img
+src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://YOURUSERNAME.github.io/IBD-Family-Toolkit/toolkit.html"
+alt="IBD Family Toolkit QR Code">
+
+</div>
+
+<p>Scan this QR code using your phone camera to access the complete IBD Family Toolkit.</p>
+            
+            <p style="margin-bottom: 20px; font-size: 1.05em;">Point your phone camera at this code to access:</p>
+            <div class="qr-resources">
+                <div class="qr-resource-item">
+                    <i class="fas fa-chart-simple"></i>
+                    Symptom Tracker
+                </div>
+                <div class="qr-resource-item">
+                    <i class="fas fa-toilet-paper"></i>
+                    Stool Diary
+                </div>
+                <div class="qr-resource-item">
+                    <i class="fas fa-apple"></i>
+                    Nutrition Tips
+                </div>
+                <div class="qr-resource-item">
+                    <i class="fas fa-capsules"></i>
+                    Medication Info
+                </div>
+                <div class="qr-resource-item">
+                    <i class="fas fa-phone"></i>
+                    Contact Details
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 IBD Flare Family Toolkit. Always consult with your IBD team for medical advice.</p>
+        <p>This guide is for informational purposes and should not replace professional medical advice.</p>
+    </footer>
+</body>
+</html>
