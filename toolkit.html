@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBD Flare Family Toolkit - Resources</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        /* Back Button */
+        .back-button {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #764ba2;
+        }
+
+        /* Resources Grid */
+        .toolkit-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .toolkit-section h2 {
+            color: #667eea;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .resource-card {
+            background: linear-gradient(135deg, #f0f4ff 0%, #e9ecff 100%);
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+
+        .resource-card i {
+            font-size: 3em;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .resource-card h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .resource-card p {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 20px;
+        }
+
+        .resource-card .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.95em;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .resource-card .btn:hover {
+            background: #764ba2;
+            transform: scale(1.05);
+        }
+
+        /* Emergency Contacts */
+        .emergency-section {
+            background: #fef2f2;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            border-left: 4px solid #dc2626;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .emergency-section h2 {
+            color: #7f1d1d;
+            margin-bottom: 20px;
+            font-size: 1.6em;
+        }
+
+        .emergency-contacts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #dc2626;
+        }
+
+        .contact-card h4 {
+            color: #7f1d1d;
+            margin-bottom: 10px;
+        }
+
+        .contact-card p {
+            color: #5f2121;
+            margin-bottom: 8px;
+        }
+
+        .contact-card a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Info Section */
+        .info-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .info-section h2 {
+            color: #10b981;
+            margin-bottom: 20px;
+            font-size: 1.6em;
+        }
+
+        .info-section p {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .emergency-contacts {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>
+                <i class="fas fa-toolbox"></i>
+                IBD Flare Family Toolkit
+            </h1>
+            <p>Your comprehensive resource guide</p>
+        </header>
+
+        <!-- Back Button -->
+        <a href="index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i> Back to Main Guide
+        </a>
+
+        <!-- Resources Section -->
+        <section class="toolkit-section">
+            <h2>Available Resources</h2>
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <i class="fas fa-chart-simple"></i>
+                    <h3>Symptom Tracker</h3>
+                    <p>Monitor and record your child's symptoms over time to track patterns and flare progression</p>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSehmuX7L77iAZYfqhQDHCH8WGMy0FZihonEkyttzfeYEYON9w/viewform?usp=dialog" class="btn" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-external-link-alt"></i> Open Tracker
+                    </a>
+                </div>
+
+                <div class="resource-card">
+                    <i class="fas fa-toilet-paper"></i>
+                    <h3>Stool Chart</h3>
+                    <p>Track bowel movements and characteristics using the Bristol Stool Scale to share with your IBD team</p>
+                    <a href="https://bristolstoolchart.net" class="btn" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-external-link-alt"></i> View Chart
+                    </a>
+                </div>
+
+                <div class="resource-card">
+                    <i class="fas fa-apple"></i>
+                    <h3>Nutrition Guidelines</h3>
+                    <p>Dietary guidance and nutritional recommendations during flares and remission periods</p>
+                    <a href="https://docs.google.com/document/d/1cHJg2xTQlbSkFwOBDSknkDrTuIgLuYYqrsmgmWyzpi8/edit?usp=sharing" class="btn" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-external-link-alt"></i> View Nutrition
+                    </a>
+                </div>
+
+                <div class="resource-card">
+                    <i class="fas fa-book"></i>
+                    <h3>Clinical Resources</h3>
+                    <p>ESPEN practical guidelines for clinical nutrition in inflammatory bowel disease</p>
+                    <a href="https://www.espen.org/files/ESPEN-Guidelines/ESPEN_practical_guideline_Clinical_Nutrition_in_inflammatory_bowel_disease.pdf" class="btn" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-external-link-alt"></i> Download PDF
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Info Section -->
+        <section class="info-section">
+            <h2>
+                <i class="fas fa-info-circle"></i>
+                How to Use These Resources
+            </h2>
+            <p>
+                <strong>Symptom Tracker:</strong> Use the Google Form to regularly log your child's daily symptoms. This creates a comprehensive record that you can share with your IBD team during appointments.
+            </p>
+            <p>
+                <strong>Stool Chart:</strong> The Bristol Stool Scale helps you describe your child's bowel movements accurately. Take photos or screenshots to share with your healthcare provider.
+            </p>
+            <p>
+                <strong>Nutrition Guidelines:</strong> Access dietary recommendations and meal planning tips to support your child during flares and remission periods.
+            </p>
+            <p>
+                <strong>Clinical Resources:</strong> These evidence-based guidelines provide detailed information about nutrition management in IBD for healthcare professionals and informed parents.
+            </p>
+        </section>
+
+        <!-- Emergency Contacts Section -->
+        <section class="emergency-section">
+            <h2>
+                <i class="fas fa-exclamation-triangle"></i>
+                Emergency & Important Contacts
+            </h2>
+            <div class="emergency-contacts">
+                <div class="contact-card">
+                    <h4>IBD Clinic</h4>
+                    <p><strong>Phone:</strong> Add your clinic number</p>
+                    <p><strong>Hours:</strong> Add clinic hours</p>
+                </div>
+                <div class="contact-card">
+                    <h4>Gastroenterologist</h4>
+                    <p><strong>Name:</strong> Add doctor's name</p>
+                    <p><strong>Phone:</strong> Add contact number</p>
+                </div>
+                <div class="contact-card">
+                    <h4>Emergency Services</h4>
+                    <p><strong>Hospital:</strong> Add hospital name</p>
+                    <p><strong>Phone:</strong> <a href="tel:911">911</a></p>
+                </div>
+                <div class="contact-card">
+                    <h4>Pediatrician</h4>
+                    <p><strong>Name:</strong> Add pediatrician's name</p>
+                    <p><strong>Phone:</strong> Add contact number</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 IBD Flare Family Toolkit. Always consult with your IBD team for medical advice.</p>
+        <p>This guide is for informational purposes and should not replace professional medical advice.</p>
+    </footer>
+</body>
+</html>
