@@ -541,6 +541,88 @@
             line-height: 1.6;
         }
 
+        /* Bristol Stool Chart Resources Box */
+        .bristol-resources {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid #d97706;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+
+        .bristol-resources h4 {
+            color: #92400e;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1em;
+        }
+
+        .bristol-resources a {
+            display: inline-block;
+            background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 10px 10px 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        .bristol-resources a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(217, 119, 6, 0.4);
+        }
+
+        .bristol-resources p {
+            color: #78350f;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        /* Nutrition Resources Box */
+        .nutrition-resources {
+            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+            border-left: 4px solid #10b981;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+
+        .nutrition-resources h4 {
+            color: #065f46;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1em;
+        }
+
+        .nutrition-resources a {
+            display: inline-block;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 10px 10px 10px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nutrition-resources a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(16, 185, 129, 0.4);
+        }
+
+        .nutrition-resources p {
+            color: #065f46;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             header h1 {
@@ -744,20 +826,42 @@
                     </div>
                 </div>
 
-                <h3>Submit Your Stool Diary Entry</h3>
-                <p>Log your child's bowel movements daily for better IBD management:</p>
-
-                <div class="form-container">
-                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdXexample2/viewform?embedded=true" title="Stool Diary Form"></iframe>
+                <!-- Bristol Stool Chart Resources -->
+                <div class="bristol-resources">
+                    <h4>
+                        <i class="fas fa-chart-bar"></i>
+                        Bristol Stool Chart Resources
+                    </h4>
+                    <p>Use the Bristol Stool Chart to accurately classify your child's stool consistency:</p>
+                    <a href="https://bristolstoolchart.net" target="_blank">
+                        <i class="fas fa-link"></i> Bristol Stool Chart App
+                    </a>
+                    <p style="margin-top: 15px; font-size: 0.95em;">
+                        The Bristol Stool Chart is a visual guide that helps you identify and record your child's stool type from Type 1 (hard lumps) to Type 7 (liquid). This standardized classification helps your IBD team understand your child's digestive status and response to treatment.
+                    </p>
                 </div>
 
+                <h3>Submit Your Stool Diary Entry</h3>
+                <p>Download the Word document template and use it to track daily stool diary entries:</p>
+
                 <div class="action-buttons">
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdXexample2/viewform" class="action-btn btn-primary" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> Open Full Form
-                    </a>
-                    <button class="action-btn btn-secondary" onclick="downloadTemplate('stool')">
-                        <i class="fas fa-download"></i> Download Template
+                    <button class="action-btn btn-primary" onclick="downloadStoolDiary()">
+                        <i class="fas fa-file-word"></i> Download Word Document
                     </button>
+                    <button class="action-btn btn-secondary" onclick="downloadTemplate('stool')">
+                        <i class="fas fa-download"></i> Download PDF Template
+                    </button>
+                </div>
+
+                <div class="tips-section" style="margin-top: 20px;">
+                    <h4><i class="fas fa-info-circle"></i> How to Use This Diary</h4>
+                    <ul>
+                        <li>Complete the Word document daily for each bowel movement</li>
+                        <li>Reference the Bristol Stool Chart for stool type classification</li>
+                        <li>Share weekly summaries with your IBD team</li>
+                        <li>Keep copies for your medical records</li>
+                        <li>Use this data to identify patterns and triggers</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -809,8 +913,23 @@
                     </div>
                 </div>
 
-                <h3>Nutrition Information & Questions</h3>
-                <p>Share your nutrition concerns and track your child's dietary response:</p>
+                <!-- Nutrition Resources -->
+                <div class="nutrition-resources">
+                    <h4>
+                        <i class="fas fa-file-download"></i>
+                        Nutrition Tips Guide
+                    </h4>
+                    <p>Download our comprehensive nutrition tips document designed for children with IBD. This guide includes meal ideas, food lists, and practical strategies:</p>
+                    <button class="action-btn btn-primary" onclick="downloadNutritionTips()" style="width: 100%; justify-content: center;">
+                        <i class="fas fa-file-word"></i> Download Nutrition Tips Word Document
+                    </button>
+                    <p style="margin-top: 15px; font-size: 0.95em;">
+                        The nutrition tips guide contains detailed information about food choices during flares and remission, meal planning strategies, hydration guidelines, and supplementation recommendations based on your child's specific needs.
+                    </p>
+                </div>
+
+                <h3>Track Your Child's Nutritional Response</h3>
+                <p>Use the form below to document how your child responds to different foods:</p>
 
                 <div class="form-container">
                     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdXexample3/viewform?embedded=true" title="Nutrition Tips Form"></iframe>
@@ -821,7 +940,7 @@
                         <i class="fas fa-external-link-alt"></i> Open Full Form
                     </a>
                     <button class="action-btn btn-secondary" onclick="downloadTemplate('nutrition')">
-                        <i class="fas fa-download"></i> Download Template
+                        <i class="fas fa-download"></i> Download Food Log Template
                     </button>
                 </div>
 
@@ -1072,6 +1191,16 @@
             };
             
             alert('Download would start for: ' + templates[type] + '\n\nIn a real implementation, this would trigger a file download.');
+        }
+
+        function downloadStoolDiary() {
+            // This would download a Word document
+            alert('Stool Diary Word Document Download\n\nIn a real implementation, this would trigger a .docx file download with the stool diary template.');
+        }
+
+        function downloadNutritionTips() {
+            // This would download the Nutrition Tips Word document
+            alert('Nutrition Tips Word Document Download\n\nIn a real implementation, this would trigger a .docx file download with the comprehensive nutrition tips guide.');
         }
 
         function handleContactSubmit(event) {
